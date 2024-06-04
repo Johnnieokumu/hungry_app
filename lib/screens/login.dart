@@ -20,6 +20,7 @@ class _LoginState extends State<Login> {
    final TextEditingController usernameController = TextEditingController();
     final _formKey = GlobalKey<FormState>();
   bool _isLoading = false;
+  bool passwordObscure = true;
 
    void _login() async {
     if (_formKey.currentState!.validate()) {
@@ -92,9 +93,16 @@ class _LoginState extends State<Login> {
               const SizedBox(height: 15),
        TextFormField(
                 controller: passwordController,
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                   hoverColor: Colors.green,
-                  suffixIcon: Icon(Icons.lock_outline),
+                  suffixIcon: IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    passwordObscure = !passwordObscure;
+                                  });
+                                },
+                                icon:
+                                    const Icon(Icons.remove_red_eye_outlined)),
                   hintText: "Password",
                   border: OutlineInputBorder(),
                 ),

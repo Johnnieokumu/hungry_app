@@ -18,7 +18,7 @@ class _RegistrationState extends State<Register> {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
-
+  bool passwordObscure = true;
   Future<void> register() async {
     if (_formKey.currentState!.validate()) {
       if (passwordController.text != confirmPasswordController.text) {
@@ -118,6 +118,7 @@ class _RegistrationState extends State<Register> {
                 ),
 
               ),
+              const SizedBox(height: 15),
               // User to enter password
               TextFormField(
                 validator: (String? value) {
@@ -126,10 +127,17 @@ class _RegistrationState extends State<Register> {
                   }
                   return null;
                 },
-                obscureText: true,
+                obscureText: passwordObscure,
                 controller: passwordController,
-                decoration: const InputDecoration(
-                  suffixIcon: Icon(Icons.security),
+                decoration:  InputDecoration(
+                  suffixIcon: IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    passwordObscure = !passwordObscure;
+                                  });
+                                },
+                                icon:
+                                    const Icon(Icons.remove_red_eye_outlined)),
                   hoverColor: Colors.brown,
                   hintText: 'Enter Password',
                   border: OutlineInputBorder(),
