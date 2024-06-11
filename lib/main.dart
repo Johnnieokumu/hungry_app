@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:hungry_app/screens/homepage.dart';
+// import 'package:hungry_app/screens/homepage.dart';
 import 'firebase_options.dart';
 import 'package:hungry_app/screens/register.dart';
 void main() async {
@@ -8,7 +8,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
 );
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -20,8 +20,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Hungry App',
       theme: ThemeData(
-        
-        colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 192, 173, 155)),
+        primaryColor: const Color.fromARGB(255, 148, 112, 45),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 192, 173, 155)),
         // useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,

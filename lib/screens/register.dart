@@ -140,7 +140,7 @@ class _RegistrationState extends State<Register> {
                                     const Icon(Icons.remove_red_eye_outlined)),
                   hoverColor: Colors.brown,
                   hintText: 'Enter Password',
-                  border: OutlineInputBorder(),
+                  border: const OutlineInputBorder(),
                 ),
               ),
               const SizedBox(height: 15),
@@ -172,7 +172,7 @@ class _RegistrationState extends State<Register> {
             Navigator.pushReplacement(
               context,
              MaterialPageRoute(
-              builder: (BuildContext context) => Login()
+              builder: (BuildContext context) => const Login()
               )
               );
               },
